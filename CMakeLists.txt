@@ -131,6 +131,18 @@ if(FUTURE)
   add_compile_definitions(QPDF_FUTURE=1)
 endif()
 
+if(dep_include_directories)
+  target_include_directories(your_target PRIVATE ${dep_include_directories})
+endif()
+
+if(dep_link_directories)
+  target_link_directories(your_target PRIVATE ${dep_link_directories})
+endif()
+
+if(dep_link_libraries)
+  target_link_libraries(your_target PRIVATE ${dep_link_libraries})
+endif()
+
 enable_testing()
 set(RUN_QTEST perl ${qpdf_SOURCE_DIR}/run-qtest ${ENABLE_QTC_ARG})
 
